@@ -1,0 +1,61 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block page_header %}
+	<h1>Login</h1>
+{% endblock %}
+
+{% block fos_user_content %}
+{% if error %}
+    <div class="alert alert-danger">{{ error|trans({}, 'FOSUserBundle') }}</div>
+{% endif %}
+
+	<form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+	    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+	  	<div class="control-group">
+		    <label class="control-label" for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+		    
+		    <div class="controls">
+			    <input class="input-xlarge" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+			</div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+		    
+		    <div class="controls">
+			    <input class="input-xlarge" type="password" id="password" name="_password" required="required" />
+			    <span class="help-inline"><a href="{{ path('fos_user_resetting_request') }}">Forgot Password?</a></span>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<label class="checkbox">
+				    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />Remember Me
+				</label>
+
+		    	<input class="btn btn-success btn-large" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+			</div>
+		</div>		
+	</form>
+
+
+	<div class="alert alert-success">
+		<h3>Need an account?</h3>
+
+		{% if allListingTypes|length == 1 %}
+			<a href="{{ path(singleListingType.signupRouteName) }}" class="btn btn-success">
+				Signup
+			</a>
+		{% else %}
+			{% for listingType in allListingTypes %}
+				<a href="{{ path(listingType.signupRouteName) }}" class="btn btn-success">
+					Signup as a {{ listingType.translationKey|capitalize|trans({}, "messages") }}
+				</a>
+			{% endfor %}
+		{% endif %}
+
+	</div>
+
+
+
+{% endblock fos_user_content %}

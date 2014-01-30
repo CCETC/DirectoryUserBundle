@@ -1,0 +1,15 @@
+security:
+    login:
+        username: "E-mail:"
+resetting:
+    request:
+        username: "Enter your email address:"
+
+form:
+    password_confirmation: "Verify password:"
+    new_password_confirmation: "Verify new password:"
+
+change_password:
+    flash:
+        success: Your password has been changed
+

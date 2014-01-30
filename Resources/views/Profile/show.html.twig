@@ -1,0 +1,14 @@
+{% extends layoutTemplate %}
+
+{% block page_header %}
+    <h2>Settings</h2>
+{% endblock %}
+
+{% block content %}
+	<p>
+		<a class="btn btn-large" href="{{ path('fos_user_change_password') }}">
+			<i class="icon-lock"></i>
+			Change Password
+		</a>
+	</p>
+{% endblock %}

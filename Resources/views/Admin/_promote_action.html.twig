@@ -1,0 +1,5 @@
+{% if 'ROLE_ADMIN' not in object.roles %}
+	<a href="{{ admin.generateUrl('promote', {'id': admin.id(object)}) }}" class="btn-small btn" title="Make Admin">
+		<i class="icon-plus"></i> Make Admin
+	</a>
+{% endif %}

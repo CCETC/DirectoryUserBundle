@@ -1,0 +1,5 @@
+{% if 'ROLE_ADMIN' in object.roles %}
+	<a href="{{ admin.generateUrl('demote', {'id': admin.id(object)}) }}" class="btn-small btn" title="Remove Admin Access">
+		<i class="icon-minus"></i> Remove Admin Access
+	</a>
+{% endif %}
