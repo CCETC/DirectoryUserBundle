@@ -40,4 +40,13 @@ class UserAdminController extends Controller
     return new RedirectResponse($this->admin->generateUrl('list', $this->admin->getFilterParameters()));
   }
 
+  public function createAction()
+  {
+    return $this->render('CCETCDirectoryUserBundle:Admin:create_message.html.twig', array(
+        'action' => 'create',
+        'admin' => $this->admin,
+        'registrationSetting' => $this->container->getParameter('ccetc_directory.registration_setting')
+    ));
+  }
+
 }

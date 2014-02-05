@@ -27,9 +27,7 @@ class UserAdmin extends Admin
     
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper
-            ->add('listing', null, array('required' => false))
-        ;
+
     }
 
 
@@ -40,8 +38,6 @@ class UserAdmin extends Admin
             ->add('listing')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'view' => array(),
-                    'edit' => array(),
                     'promote' => array('template' => 'CCETCDirectoryUserBundle:Admin:_promote_action.html.twig'),
                     'demote' => array('template' => 'CCETCDirectoryUserBundle:Admin:_demote_action.html.twig'),
                 )
@@ -51,9 +47,6 @@ class UserAdmin extends Admin
     
     protected function configureShowFields(ShowMapper $showMapper)
     {
-        $showMapper
-            ->add('email')   
-            ->add('listing')
-        ;
+
     }
 }
