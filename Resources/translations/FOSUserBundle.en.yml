@@ -6,6 +6,7 @@ resetting:
         username: "Enter your email address:"
 
 form:
+    email: "Email used on Listing:"
     password_confirmation: "Verify password:"
     new_password_confirmation: "Verify new password:"
 
@@ -13,3 +14,16 @@ change_password:
     flash:
         success: Your password has been changed
 
+registration:
+    check_email: An email has been sent to %email%. It contains an activation link you must click to activate your account.
+    confirmed: Congrats %username%, your account is now activated.
+    back: Back
+    submit: Submit
+    flash:
+        user_created: Your account has successfully been created
+    email:
+        subject: Welcome %username%!
+        message: |
+            Hello %username%!
+
+            To finish activating your account - please visit %confirmationUrl%

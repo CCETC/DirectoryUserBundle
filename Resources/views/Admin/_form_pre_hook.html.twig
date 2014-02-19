@@ -1,0 +1,10 @@
+<div class="alert alert-block alert-success">
+	<h3>Use this form to create an admin account</h3>
+	<b>Note:</b> Once created, you'll still need to make this user an "admin" from the <a href="{{ admin.generateUrl('list') }}">list page</a>
+	
+	<h3>Need to create an account for a Listing owner?</h3>
+	<b>New listing/account:</b> ask the Listing owner to use the <a href="{{ path(singleListingType.signupRouteName) }}">"Signup" page</a><br/>
+	{% if registrationSetting == "optional" %}
+		<b>Existing Listing without an account</b>: ask the Listing owner to use the <a href="{{ path('fos_user_registration_register') }}">"Create Account" page</a>
+	{% endif %}
+</div>

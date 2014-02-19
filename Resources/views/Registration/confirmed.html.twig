@@ -1,0 +1,13 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+    {% if app.session is not empty %}
+        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
+    {% endif %}
+    {% if app.user.listing.id is defined %}
+    	{% set listingType = getListingTypeForObject(app.user.listing) %}
+        <a class="btn edit-btn" href="{{ path(listingType.editRouteName, {'id' : app.user.listing.id}) }}" ><i class="icon-pencil"></i> Edit your Listing</a> 
+    {% endif %}
+{% endblock fos_user_content %}

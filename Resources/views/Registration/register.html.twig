@@ -2,9 +2,13 @@
 
 
 {% block page_header %}
-	<h1>Create Account</h1>
+	<h1>Create account for an existing Listing</h1>
 {% endblock %}
 
 {% block fos_user_content %}
+	<div class="alert alert-block alert-success">
+		<h4>Already have a Listing but want to create an account to edit it?</h4>
+	</div>
+
 {% include "FOSUserBundle:Registration:register_content.html.twig" %}
 {% endblock fos_user_content %}

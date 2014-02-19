@@ -53,7 +53,16 @@
 				</a>
 			{% endfor %}
 		{% endif %}
+	</div>
+	<div class="alert alert-success">
 
+		{% if registrationSetting == "optional" %}
+			<h3>Need to edit an existing Listing but don't have an account?</h3>
+
+			<a href="{{ path('fos_user_registration_register') }}" class="btn btn-success">
+				Create your Account
+			</a>
+		{% endif %}
 	</div>
 
 
