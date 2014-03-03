@@ -49,7 +49,7 @@
 		{% else %}
 			{% for listingType in allListingTypes %}
 				<a href="{{ path(listingType.signupRouteName) }}" class="btn btn-success">
-					Signup as a {{ listingType.translationKey|capitalize|trans({}, "messages") }}
+					{{ listingType.translationKey|capitalize|trans({}, "messages") }} Signup
 				</a>
 			{% endfor %}
 		{% endif %}
