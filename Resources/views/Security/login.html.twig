@@ -38,9 +38,17 @@
 		</div>		
 	</form>
 
+	{% if registrationSetting == "optional" %}
+		<div class="alert alert-success">
+			<h3>My {{ allListingTypes|length == 1? singleListingType.translationKey|capitalize|trans({}, "messages") : 'Listing' }} is listed but I don't have an account</h3>
 
+			<a href="{{ path('fos_user_registration_register') }}" class="btn btn-success">
+				Create your Account
+			</a>
+		</div>
+	{% endif %}	
 	<div class="alert alert-success">
-		<h3>Need an account?</h3>
+		<h3>My {{ allListingTypes|length == 1? singleListingType.translationKey|capitalize|trans({}, "messages") : 'Listing' }} isn't listed.</h3>
 
 		{% if allListingTypes|length == 1 %}
 			<a href="{{ path(singleListingType.signupRouteName) }}" class="btn btn-success">
@@ -54,16 +62,6 @@
 			{% endfor %}
 		{% endif %}
 	</div>
-	{% if registrationSetting == "optional" %}
-		<div class="alert alert-success">
-			<h3>Need to edit an existing Listing but don't have an account?</h3>
-
-			<a href="{{ path('fos_user_registration_register') }}" class="btn btn-success">
-				Create your Account
-			</a>
-		</div>
-	{% endif %}	
-
 
 
 {% endblock fos_user_content %}
