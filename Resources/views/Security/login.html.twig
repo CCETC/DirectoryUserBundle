@@ -48,8 +48,12 @@
 		</div>
 	{% endif %}	
 	<div class="alert alert-success">
-		<h3>My {{ allListingTypes|length == 1? singleListingType.translationKey|capitalize|trans({}, "messages") : 'Listing' }} isn't listed.</h3>
-
+		{% if registrationSetting == "optional" %}
+			<h3>My {{ allListingTypes|length == 1? singleListingType.translationKey|capitalize|trans({}, "messages") : 'Listing' }} isn't listed.</h3>
+		{% else %}
+			<h3>Need an Account?</h3>
+		{% endif %}
+		
 		{% if allListingTypes|length == 1 %}
 			<a href="{{ path(singleListingType.signupRouteName) }}" class="btn btn-success">
 				Signup
