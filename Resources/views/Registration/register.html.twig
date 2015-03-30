@@ -2,12 +2,12 @@
 
 
 {% block page_header %}
-	<h1>Create account for an existing Listing</h1>
+	<h1>Have a {{ allListingTypes|length == 1? singleListingType.translationKey|capitalize|trans({}, "messages") : 'Listing' }} that isn't listed?</h1>
 {% endblock %}
 
 {% block fos_user_content %}
 	<div class="alert alert-block alert-success">
-		<h4>Already have a Listing but want to create an account to edit it?</h4>
+		<h3>Create account for an existing {{ allListingTypes|length == 1? singleListingType.translationKey|capitalize|trans({}, "messages") : 'Listing' }}</h3>
 	</div>
 
 {% include "FOSUserBundle:Registration:register_content.html.twig" %}
