@@ -19,7 +19,7 @@ class UserAdminController extends Controller
     $em->flush();
     $em->clear();
 
-    $this->getRequest()->getSession()->setFlash('sonata_flash_success', $user->getEmail() . ' has been given admin access');
+    $this->getRequest()->getSession()->getFlashBag()->add('sonata_flash_success', $user->getEmail() . ' has been given admin access');
 
     return new RedirectResponse($this->admin->generateUrl('list', $this->admin->getFilterParameters()));
   }
@@ -35,7 +35,7 @@ class UserAdminController extends Controller
     $em->flush();
     $em->clear();
 
-    $this->getRequest()->getSession()->setFlash('sonata_flash_success', $user->getEmail() . "'s admin access has been removed");
+    $this->getRequest()->getSession()->getFlashBag()->add('sonata_flash_success', $user->getEmail() . "'s admin access has been removed");
 
     return new RedirectResponse($this->admin->generateUrl('list', $this->admin->getFilterParameters()));
   }
